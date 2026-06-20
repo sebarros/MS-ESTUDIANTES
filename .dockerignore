@@ -1,0 +1,17 @@
+target/
+.idea/
+.vscode/
+
+.git/
+.gitignore
+
+*.iml
+*.log
+
+data/
+h2/
+
+README.md
+
+.DS_Store
+Thumbs.db

@@ -1,0 +1,35 @@
+databases:
+  - name: bd-estudiantes
+    databaseName: estudiantesdb
+    user: estudiantesuser
+    plan: free
+    region: oregon
+
+services:
+  - type: web
+    name: ms-estudiantes
+    runtime: docker
+    plan: free
+    region: oregon
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: DB_HOST
+        fromDatabase:
+          name: bd-estudiantes
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: bd-estudiantes
+          property: port
+      - key: DB_NAME
+        fromDatabase:
+          name: bd-estudiantes
+          property: database
+      - key: DB_USER
+        fromDatabase:
+          name: bd-estudiantes
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: bd-estudiantes
+          property: password
